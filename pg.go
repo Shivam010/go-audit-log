@@ -61,7 +61,7 @@ func (db *pg) Add(ctx context.Context, action string) error {
 	return nil
 }
 
-// GetLogsOfUser returns the list of all the Logs for a user
+// GetLogsOfUser returns the list of all the Logs for an user
 func (db *pg) GetLogsOfUser(ctx context.Context, userID string) ([]*Log, error) {
 	const stmt = `SELECT * FROM audit."Logs" WHERE "UserId" = $1;`
 	rows, err := db.QueryContext(ctx, stmt, userID)
@@ -79,7 +79,7 @@ func (db *pg) GetLogsOfUser(ctx context.Context, userID string) ([]*Log, error) 
 	return lst, nil
 }
 
-// GetLogsBetweenInterval returns the list of all the Logs for a user in a range of interval
+// GetLogsBetweenInterval returns the list of all the Logs for an user in a range of interval
 func (db *pg) GetLogsBetweenInterval(ctx context.Context, start time.Time, end time.Time, userID string) ([]*Log, error) {
 	const stmt = `SELECT * FROM audit."Logs" WHERE "UserId" = $1 AND "Timestamp" >= $2 AND "Timestamp" <= $3;`
 	rows, err := db.QueryContext(ctx, stmt, userID, start, end)

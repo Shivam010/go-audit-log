@@ -12,7 +12,7 @@ type Log struct {
 	Action    string
 }
 
-// AuditLog is the interface that stores Audit Logs of actions performed by a user
+// AuditLog is the interface that stores Audit Logs of actions performed by an user
 type AuditLog interface {
 	Add(ctx context.Context, action string) error
 	GetLogsOfUser(ctx context.Context, userID string) ([]*Log, error)

@@ -3,10 +3,10 @@ package logs_test
 import (
 	"database/sql"
 	"fmt"
+	"log"
 	"testing"
 
 	"github.com/Shivam010/go-audit-log"
-
 	_ "github.com/lib/pq"
 )
 
@@ -29,4 +29,10 @@ func TestPostgresAuditLog(t *testing.T) {
 	defer db.Close()
 	lg, err := logs.NewPostgresAuditLog(db)
 	RunAuditLogTest(lg, t)
+
+	_, err = db.Query(`DELETE FROM audit."Logs"`)
+	if err != nil {
+		log.Fatalln("Not Deleted", err)
+	}
+	fmt.Println("Database Cleared")
 }

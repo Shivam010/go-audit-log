@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/Shivam010/go-audit-log"
-
 	"github.com/google/uuid"
 )
 
