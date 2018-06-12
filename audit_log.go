@@ -12,6 +12,8 @@ type Log struct {
 	Action    string
 }
 
+// go:generate mockgen -source=audit_log.go -destination=mocks\audit_log_mocks.go -package=logs_mock
+
 // AuditLog is the interface that stores Audit Logs of actions performed by an user
 type AuditLog interface {
 	Add(ctx context.Context, action string) error
