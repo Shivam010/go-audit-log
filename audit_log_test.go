@@ -37,6 +37,7 @@ func RunAuditLogTest(lg logs.AuditLog, t *testing.T) {
 					}
 				})
 			}
+			time.Sleep(time.Second)
 			end = time.Now()
 		})
 
