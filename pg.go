@@ -34,7 +34,6 @@ func setupDatabase(db *sql.DB) error {
 	const tbl = `CREATE TABLE IF NOT EXISTS audit."Logs" (
 		"Timestamp"        TIMESTAMPTZ       NOT NULL,
 		"UserId" text NOT NULL,
-		"ServiceName" text NOT NULL,
 		"Action" text NOT NULL
 	  );`
 	if _, err = tx.Exec(tbl); err != nil {
