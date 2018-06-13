@@ -24,6 +24,12 @@ func setupDatabase(db *sql.DB) error {
 		return err
 	}
 
+	// creating schema in the database
+	const sch = `CREATE SCHEMA IF NOT EXISTS "audit"`
+	if _, err = tx.Exec(sch); err != nil {
+		return err
+	}
+
 	// creating the audit log table
 	const tbl = `CREATE TABLE IF NOT EXISTS audit."Logs" (
 		"Timestamp"        TIMESTAMPTZ       NOT NULL,
