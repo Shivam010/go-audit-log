@@ -12,8 +12,8 @@ import (
 
 const (
 	DB_USER     = "postgres"
-	DB_PASSWORD = "appointy"
-	DB_NAME     = "Google"
+	DB_PASSWORD = "password"
+	DB_NAME     = "Database"
 )
 
 func TestPostgresAuditLog(t *testing.T) {

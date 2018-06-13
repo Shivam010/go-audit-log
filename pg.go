@@ -45,7 +45,7 @@ func setupDatabase(db *sql.DB) error {
 	if _, err = tx.Exec(hptbl); err != nil {
 		return err
 	}
-	return nil
+	return tx.Commit()
 }
 
 // NewPostgresAuditLog returns the AuditLog interface that implements Audit Logs Functions
